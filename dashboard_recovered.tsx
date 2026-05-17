@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { motion } from "framer-motion";
 import { 
@@ -41,11 +41,11 @@ export default function DashboardPage() {
   const [error, setError] = useState<string | null>(null);
 
   const personas = [
-    { id: "Student", label: "Student Investor", risk: "Low", style: "Conservative", icon: "🎓", desc: "Low-budget, SIP-oriented, safe assets like SBI FD & Nifty Index Funds." },
-    { id: "Beginner", label: "Beginner Investor", risk: "Medium", style: "Balanced", icon: "🌱", desc: "Stable growth through HDFC Flexi Cap and diversified ETFs." },
-    { id: "Salaried", label: "Salaried Professional", risk: "Medium", style: "Long-term", icon: "💼", desc: "Tax-saving ELSS, NPS, and large-cap equity for wealth creation." },
-    { id: "Aggressive", label: "Aggressive Investor", risk: "High", style: "Growth", icon: "🚀", desc: "High-growth Midcap & Small Cap funds for aggressive returns." },
-    { id: "Advisor", label: "Financial Advisor", risk: "Variable", style: "Advanced", icon: "📊", desc: "Advanced analytics, full allocation control, and deep DP visibility." },
+    { id: "Student", label: "Student Investor", risk: "Low", style: "Conservative", icon: "≡ƒÄô", desc: "Low-budget, SIP-oriented, safe assets like SBI FD & Nifty Index Funds." },
+    { id: "Beginner", label: "Beginner Investor", risk: "Medium", style: "Balanced", icon: "≡ƒî▒", desc: "Stable growth through HDFC Flexi Cap and diversified ETFs." },
+    { id: "Salaried", label: "Salaried Professional", risk: "Medium", style: "Long-term", icon: "≡ƒÆ╝", desc: "Tax-saving ELSS, NPS, and large-cap equity for wealth creation." },
+    { id: "Aggressive", label: "Aggressive Investor", risk: "High", style: "Growth", icon: "≡ƒÜÇ", desc: "High-growth Midcap & Small Cap funds for aggressive returns." },
+    { id: "Advisor", label: "Financial Advisor", risk: "Variable", style: "Advanced", icon: "≡ƒôè", desc: "Advanced analytics, full allocation control, and deep DP visibility." },
   ];
 
   const processingLabels = [
@@ -190,7 +190,7 @@ export default function DashboardPage() {
                 <p className="text-gray-500 text-center mb-8">Persona: <span className="text-[#9b51e0] font-bold">{stakeholder}</span></p>
                 <div className="space-y-5 bg-[#11151F] border border-white/5 rounded-2xl p-8">
                   <div>
-                    <label className="text-xs font-bold text-gray-400 uppercase tracking-widest mb-2 block">Investment Budget (₹)</label>
+                    <label className="text-xs font-bold text-gray-400 uppercase tracking-widest mb-2 block">Investment Budget (Γé╣)</label>
                     <input type="number" value={budgetStr} onChange={e => setBudgetStr(e.target.value)} className="w-full bg-[#0B0E14] border border-white/10 rounded-xl py-3 px-4 text-white font-bold focus:outline-none focus:border-[#9b51e0] transition-colors" />
                   </div>
                   <div>
@@ -210,9 +210,9 @@ export default function DashboardPage() {
                     </div>
                   </div>
                   <button onClick={runOptimizer} className="w-full py-4 bg-gradient-to-r from-[#9b51e0] to-[#7c3aed] rounded-xl text-white font-bold text-sm uppercase tracking-widest hover:opacity-90 transition-opacity mt-2">
-                    Run Knapsack Optimizer →
+                    Run Knapsack Optimizer ΓåÆ
                   </button>
-                  <button onClick={() => setPhase("onboarding")} className="w-full py-2 text-gray-600 text-xs hover:text-gray-400 transition-colors">← Change Persona</button>
+                  <button onClick={() => setPhase("onboarding")} className="w-full py-2 text-gray-600 text-xs hover:text-gray-400 transition-colors">ΓåÉ Change Persona</button>
                 </div>
               </motion.div>
             </div>
@@ -281,7 +281,7 @@ export default function DashboardPage() {
                                   <div className="w-2 h-2 rounded-full bg-emerald-500"></div>
                                   <span className="text-sm font-bold">{asset.name}</span>
                                 </div>
-                                <span className="text-xs font-bold text-white">₹{(asset.investmentAmount || asset.cost).toLocaleString()}</span>
+                                <span className="text-xs font-bold text-white">Γé╣{(asset.investmentAmount || asset.cost).toLocaleString()}</span>
                               </div>
                             ))}
                           </div>
@@ -353,7 +353,7 @@ export default function DashboardPage() {
                                   <div className="text-lg font-black text-white">{step.itemName}</div>
                                 </div>
                                 <div className={`text-xs font-black px-4 py-1.5 rounded-full uppercase tracking-widest shadow-xl border ${step.decision === 'include' ? 'bg-emerald-500 text-white border-emerald-400 animate-bounce' : 'bg-gray-800 text-gray-400 border-white/10'}`}>
-                                  {step.decision === 'include' ? 'Include Selected ✓' : 'Rejected'}
+                                  {step.decision === 'include' ? 'Include Selected Γ£ô' : 'Rejected'}
                                 </div>
                               </div>
 
@@ -365,11 +365,11 @@ export default function DashboardPage() {
                                 <div className="grid grid-cols-2 gap-4">
                                   <div>
                                     <div className="text-[8px] text-gray-500 uppercase mb-1">Exclude (dp[i-1][w])</div>
-                                    <div className="text-xs font-bold text-gray-400">₹{step.excludeValue.toLocaleString()}</div>
+                                    <div className="text-xs font-bold text-gray-400">Γé╣{step.excludeValue.toLocaleString()}</div>
                                   </div>
                                   <div className={step.decision === 'include' ? 'border-l border-emerald-500/30 pl-4' : 'pl-4'}>
                                     <div className="text-[8px] text-gray-500 uppercase mb-1">Include (v_i + dp[i-1][w-c_i])</div>
-                                    <div className={`text-xs font-bold ${step.decision === 'include' ? 'text-emerald-400' : 'text-gray-600'}`}>₹{step.includeValue.toLocaleString()}</div>
+                                    <div className={`text-xs font-bold ${step.decision === 'include' ? 'text-emerald-400' : 'text-gray-600'}`}>Γé╣{step.includeValue.toLocaleString()}</div>
                                   </div>
                                 </div>
                               </div>
@@ -385,7 +385,7 @@ export default function DashboardPage() {
                                   <div className="pt-2 border-t border-white/5 mt-2">
                                     <div className="text-[8px] font-bold text-emerald-500 uppercase mb-1">Impact Analysis</div>
                                     <ul className="text-[9px] text-gray-500 space-y-1">
-                                      <li>• Fits within current ₹{Number(budgetStr).toLocaleString()} constraint</li>
+                                      <li>ΓÇó Fits within current Γé╣{Number(budgetStr).toLocaleString()} constraint</li>
                                       <li>ΓÇó Superior utility found at localized state kernel</li>
                                       <li>ΓÇó Diversification parity maintained</li>
                                     </ul>
@@ -422,7 +422,7 @@ export default function DashboardPage() {
                         <div className="flex justify-between items-center mb-8">
                           <div>
                             <h4 className="text-xs font-black text-gray-400 tracking-widest uppercase mb-2">Portfolio Wealth Simulation</h4>
-                            <div className="text-3xl font-extrabold text-emerald-400">₹{(simulationData[simulationData.length - 1]?.value || 0).toLocaleString()} <span className="text-xs text-gray-500 font-bold uppercase ml-2 tracking-tighter">Projected {horizon} Wealth</span></div>
+                            <div className="text-3xl font-extrabold text-emerald-400">Γé╣{(simulationData[simulationData.length - 1]?.value || 0).toLocaleString()} <span className="text-xs text-gray-500 font-bold uppercase ml-2 tracking-tighter">Projected {horizon} Wealth</span></div>
                           </div>
                           <div className="w-12 h-12 rounded-2xl bg-emerald-500/10 flex items-center justify-center">
                             <TrendingUp size={24} className="text-emerald-400" />
@@ -441,7 +441,7 @@ export default function DashboardPage() {
                               <YAxis hide domain={['auto', 'auto']} />
                               <Tooltip 
                                 contentStyle={{ backgroundColor: '#11151F', border: '1px solid rgba(255,255,255,0.1)', borderRadius: '16px', boxShadow: '0 10px 30px rgba(0,0,0,0.5)' }}
-                                formatter={(val: any) => [val ? `₹${val.toLocaleString()}` : '₹0', "Expected Corpus"]}
+                                formatter={(val: any) => [val ? `Γé╣${val.toLocaleString()}` : 'Γé╣0', "Expected Corpus"]}
                               />
                               <Area type="monotone" dataKey="value" stroke="#10b981" fillOpacity={1} fill="url(#colorValue)" strokeWidth={4} />
                             </AreaChart>
