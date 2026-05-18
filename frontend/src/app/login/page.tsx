@@ -56,7 +56,7 @@ export default function LoginPage() {
         <div className="max-w-xl mx-auto z-10 w-full relative">
           <Link href="/" className="flex items-center gap-2 mb-16">
             <Landmark className="text-[#9b51e0]" size={28} />
-            <span className="text-2xl font-bold">OptiVest India</span>
+            <span className="text-2xl font-bold">OptiVest</span>
           </Link>
 
           <h1 className="text-5xl font-bold leading-[1.2] mb-12">

@@ -51,7 +51,7 @@ export default function SignUpPage() {
       >
         <div className="flex items-center gap-2 mb-8 justify-center">
           <Landmark className="text-[#9b51e0]" size={24} />
-          <span className="text-xl font-bold">OptiVest India</span>
+          <span className="text-xl font-bold">OptiVest</span>
         </div>
 
         <h2 className="text-3xl font-bold mb-2 text-center">Create Account</h2>

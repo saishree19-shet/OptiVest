@@ -5,7 +5,7 @@ import "./globals.css";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "OptiVest India - Smart Portfolio Planning",
+  title: "OptiVest - Smart Portfolio Planning",
   description: "Enterprise-grade wealth management and portfolio optimization powered by Dynamic Programming for Modern Indian Investors.",
 };
 

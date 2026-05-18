@@ -22,7 +22,7 @@ export default function LandingPage() {
       <nav className="flex items-center justify-between px-8 py-5 border-b border-white/5 bg-[#0B0E14]/80 backdrop-blur-md sticky top-0 z-50">
         <div className="flex items-center gap-2">
           <Landmark className="text-[#9b51e0]" size={24} />
-          <span className="text-xl font-bold tracking-tight">OptiVest India</span>
+          <span className="text-xl font-bold tracking-tight">OptiVest</span>
         </div>
         <div className="hidden md:flex items-center gap-8 text-sm text-gray-400 font-medium">
           <Link href="#" className="text-white border-b-2 border-[#9b51e0] pb-1">Explore</Link>

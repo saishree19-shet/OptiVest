@@ -1,4 +1,4 @@
-﻿"use client";
+"use client";
 
 import React, { useState } from 'react';
 import { motion } from "framer-motion";
@@ -41,7 +41,7 @@ export default function AnalyticsPage() {
         <div className="p-6">
           <Link href="/dashboard" className="flex items-center gap-2">
             <Landmark className="text-[#9b51e0]" size={24} />
-            <span className="text-xl font-bold tracking-tight">OptiVest India</span>
+            <span className="text-xl font-bold tracking-tight">OptiVest</span>
           </Link>
         </div>
 

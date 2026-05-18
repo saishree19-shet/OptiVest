@@ -36,7 +36,7 @@ export default function PortfolioPage() {
         <div className="p-6">
           <Link href="/dashboard" className="flex items-center gap-2">
             <Landmark className="text-[#9b51e0]" size={24} />
-            <span className="text-xl font-bold tracking-tight">OptiVest India</span>
+            <span className="text-xl font-bold tracking-tight">OptiVest</span>
           </Link>
         </div>
         <nav className="flex-1 px-4 space-y-1 mt-4">
