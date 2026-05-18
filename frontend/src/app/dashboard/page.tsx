@@ -75,7 +75,8 @@ export default function DashboardPage() {
     }
 
     try {
-      const res = await fetch("http://localhost:5000/api/optimize", {
+      const apiUrl = process.env.NEXT_PUBLIC_API_URL || "http://localhost:5000";
+      const res = await fetch(`${apiUrl}/api/optimize`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
@@ -99,7 +100,22 @@ export default function DashboardPage() {
         if (data.data.insights) {
           setInsights(data.data.insights);
         }
-        setExpectedReturn(data.data.totalExpectedReturn ? (data.data.totalExpectedReturn / Number(budgetStr) * 100).toFixed(1) : "15.0");
+        const initialAmt = Number(budgetStr);
+        const expectedRet = data.data.totalExpectedReturn ? (data.data.totalExpectedReturn / initialAmt) : 0.15;
+        setExpectedReturn((expectedRet * 100).toFixed(1));
+        
+        const simData = [];
+        let currAmt = initialAmt;
+        const yrs = parseInt(horizon) || 5;
+        for (let y = 0; y <= yrs; y++) {
+          simData.push({
+            year: new Date().getFullYear() + y,
+            value: Math.floor(currAmt)
+          });
+          currAmt += currAmt * expectedRet;
+        }
+        setSimulationData(simData);
+
         setPhase("results");
       }
     } catch (err: unknown) {

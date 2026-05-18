@@ -1,4 +1,4 @@
-﻿"use client";
+"use client";
 
 import { motion } from "framer-motion";
 import { ArrowRight, BarChart3, Shield, LineChart, Building2, Landmark, Bell, User, Network, ShieldCheck, Cpu, Users } from "lucide-react";
@@ -88,7 +88,7 @@ export default function LandingPage() {
                   <div className="w-3 h-3 rounded-full bg-green-500"></div>
                 </div>
                 <div className="text-xs font-semibold tracking-wider text-gray-400">
-                  LIVE: NIFTY 50 ΓÇó 24,123.45 <span className="text-emerald-400">+1.24%</span>
+                  LIVE: NIFTY 50 • 24,123.45 <span className="text-emerald-400">+1.24%</span>
                 </div>
               </div>
               
@@ -141,10 +141,10 @@ export default function LandingPage() {
           
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             {[
-              { icon: LineChart, title: 'NSE Stocks', desc: 'Direct equity investments in top NSE performers with real-time tracking.', stat: 'Γé╣ High Returns', color: 'text-emerald-400' },
-              { icon: Building2, title: 'Mutual Funds', desc: 'Curated funds spanning ELSS, Debt, and Large-cap opportunities.', stat: 'Γé╣ Professional Mgmt', color: 'text-orange-400' },
-              { icon: BarChart3, title: 'Gold ETF', desc: 'Hedge against inflation with digital gold backed by physical reserves.', stat: 'Γé╣ Safe Haven', color: 'text-red-400' },
-              { icon: Landmark, title: 'Govt Bonds', desc: 'Sovereign-backed security for low-risk capital preservation.', stat: 'Γé╣ Guaranteed', color: 'text-blue-400' }
+              { icon: LineChart, title: 'NSE Stocks', desc: 'Direct equity investments in top NSE performers with real-time tracking.', stat: 'High Returns', color: 'text-emerald-400' },
+              { icon: Building2, title: 'Mutual Funds', desc: 'Curated funds spanning ELSS, Debt, and Large-cap opportunities.', stat: 'Professional Mgmt', color: 'text-orange-400' },
+              { icon: BarChart3, title: 'Gold ETF', desc: 'Hedge against inflation with digital gold backed by physical reserves.', stat: 'Safe Haven', color: 'text-red-400' },
+              { icon: Landmark, title: 'Govt Bonds', desc: 'Sovereign-backed security for low-risk capital preservation.', stat: 'Guaranteed', color: 'text-blue-400' }
             ].map((asset, i) => (
               <div key={i} className="bg-[#11151F] border border-white/5 hover:border-[#9b51e0]/50 transition-colors p-6 rounded-2xl group cursor-pointer relative overflow-hidden">
                 <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-[#9b51e0] to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
@@ -253,7 +253,7 @@ export default function LandingPage() {
               <span className="font-bold text-xl">OptiVest</span>
             </div>
             <p className="text-xs text-gray-500 leading-relaxed">
-              ┬⌐ 2024 OptiVest Technologies Inc. High-performance wealth management for the modern digital era. All rights reserved.
+              © 2024 OptiVest Technologies Inc. High-performance wealth management for the modern digital era. All rights reserved.
             </p>
           </div>
           

@@ -57,30 +57,6 @@ export function optimizePortfolio(investments: Investment[], budget: number): Op
     }
   }
 
-  // Generate Decision Steps for visualization (at full budget level)
-  const decisionSteps: DecisionStep[] = [];
-  for (let i = 1; i <= n; i++) {
-    const item = investments[i - 1];
-    const cost = Math.floor(item.investmentAmount);
-    const itemValue = (item.expectedReturn / 100) * item.investmentAmount;
-    
-    const excludeVal = dp[i - 1][W];
-    const includeVal = cost <= W ? dp[i - 1][W - cost] + itemValue : 0;
-    const decision = includeVal > excludeVal ? 'include' : 'exclude';
-    
-    decisionSteps.push({
-      itemName: item.name,
-      cost: item.investmentAmount,
-      potentialReturn: item.expectedReturn,
-      excludeValue: Number(excludeVal.toFixed(2)),
-      includeValue: Number(includeVal.toFixed(2)),
-      decision: decision as 'include' | 'exclude',
-      reason: decision === 'include' 
-        ? `${item.name} adds ₹${itemValue.toLocaleString()} in value, which is better than the previous optimal combination.`
-        : `${item.name} does not improve the total return at this budget level.`
-    });
-  }
-
   // Backtrack to find selected items
   let wCurrent = W;
   const selectedInvestments: Investment[] = [];
@@ -97,6 +73,33 @@ export function optimizePortfolio(investments: Investment[], budget: number): Op
     } else {
       rejectedInvestments.push(investments[i - 1]);
     }
+  }
+
+  // Generate Decision Steps for visualization (at full budget level)
+  const decisionSteps: DecisionStep[] = [];
+  for (let i = 1; i <= n; i++) {
+    const item = investments[i - 1];
+    const scaledCost = Math.max(1, Math.floor(item.investmentAmount / scalingFactor));
+    const itemValue = (item.expectedReturn / 100) * item.investmentAmount;
+    
+    const excludeVal = dp[i - 1][W];
+    const includeVal = scaledCost <= W ? dp[i - 1][W - scaledCost] + itemValue : 0;
+    
+    // Determine decision based on actual final selection
+    const isSelected = selectedInvestments.some(sel => sel.id === item.id);
+    const decision = isSelected ? 'include' : 'exclude';
+    
+    decisionSteps.push({
+      itemName: item.name,
+      cost: item.investmentAmount,
+      potentialReturn: item.expectedReturn,
+      excludeValue: Number(excludeVal.toFixed(2)),
+      includeValue: Number(includeVal.toFixed(2)),
+      decision: decision as 'include' | 'exclude',
+      reason: isSelected 
+        ? `${item.name} is included in the final optimal portfolio to maximize overall return.`
+        : `${item.name} was evaluated but excluded from the final portfolio to make room for better combinations.`
+    });
   }
 
   // Generate insights
