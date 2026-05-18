@@ -117,6 +117,9 @@ export default function DashboardPage() {
         setSimulationData(simData);
 
         setPhase("results");
+      } else {
+        setError(data.error || "Failed to retrieve optimal portfolio. Check database connection.");
+        setPhase("results");
       }
     } catch (err: unknown) {
       console.error(err);
