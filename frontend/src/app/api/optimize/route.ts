@@ -63,11 +63,11 @@ export function optimizePortfolio(investments: Investment[], budget: number): Op
   const decisionSteps: DecisionStep[] = [];
   for (let i = 1; i <= n; i++) {
     const item = investments[i - 1];
-    const cost = Math.floor(item.investmentAmount);
+    const scaledCost = Math.max(1, Math.floor(item.investmentAmount / scalingFactor));
     const itemValue = (item.expectedReturn / 100) * item.investmentAmount;
     
     const excludeVal = dp[i - 1][W];
-    const includeVal = cost <= W ? dp[i - 1][W - cost] + itemValue : 0;
+    const includeVal = scaledCost <= W ? dp[i - 1][W - scaledCost] + itemValue : 0;
     const decision = includeVal > excludeVal ? 'include' : 'exclude';
     
     decisionSteps.push({
